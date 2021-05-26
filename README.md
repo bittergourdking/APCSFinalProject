@@ -8,4 +8,6 @@ Prototype: https://docs.google.com/document/d/1CTJdd0qfa8UhUEigwaXeC03ZQpYv6A0ou
 TBA
 
 ## Development Log
-210524-21025: created UML diagram + sketched user interface
+210524-210525: created UML diagram + sketched user interface
+
+210526-210527: updated UML diagram, 
