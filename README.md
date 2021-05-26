@@ -5,3 +5,4 @@ After a heist gone wrong, art-conservator-turned-unwilling-con-artist Proserpine
 Prototype: https://docs.google.com/document/d/1CTJdd0qfa8UhUEigwaXeC03ZQpYv6A0ouSAsHz_8kL0/edit?usp=sharing
 
 ## Development Log
+210524-21025: created UML diagram + sketched user interface
