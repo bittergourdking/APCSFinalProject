@@ -1,17 +1,26 @@
 public class Ingredient {
-  int inventory, sunlight, water, weed, growthStage;
+  int inventory, nutrient, water, weed, growthStage, x, y;
+  String name;
+  PImage[] stages;
   
-  Ingredient() {
+  Ingredient(String s, int xC, int yC) {
+    name = s;
+    x = xC;
+    y = yC;
+  }
+  
+  void display() {
+    image(stages[growthStage], x, y);
   }
   
   void update() {
-    sunlight -= 2;
+    nutrient -= 2;
     water -= 2;
     weed -= 10;
   }
   
-  void updateSun() {
-    sunlight += 30;
+  void updateNutrient() {
+    nutrient += 30;
   }
   
   void updateWater() {
