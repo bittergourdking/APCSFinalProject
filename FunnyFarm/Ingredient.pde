@@ -7,6 +7,9 @@ public class Ingredient {
     name = s;
     x = xC;
     y = yC;
+    for (int i = 0; i < 3; i++) {
+      stages[i] = loadImage(s + i + ".png");
+    }
   }
   
   void display() {
