@@ -2,13 +2,16 @@ public class Ingredient {
   int inventory, nutrient, water, weed, growthStage, x, y;
   String name;
   PImage[] stages;
+  boolean selected;
   
   Ingredient(String s, int xC, int yC) {
     name = s;
     x = xC;
     y = yC;
+    inventory = 2;
+    stages[0] = loadImage("blankIngredient.png");
     for (int i = 0; i < 3; i++) {
-      stages[i] = loadImage(s + i + ".png");
+      stages[i + 1] = loadImage(s + i + ".png");
     }
   }
   
@@ -31,7 +34,20 @@ public class Ingredient {
   }
   
   void updateWeed() {
-    weed += 100;
+    weed = 100;
+  }
+  
+  void sow() {
+    if (growthStage == 0) {
+      growthStage = 1;
+    }
+  }
+  
+  void harvest() {
+    inventory += 2 * ((nutrient + water + weed) / 100);
+    if (inventory > 99) {
+      inventory = 99;
+    }
   }
 
 }
