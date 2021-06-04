@@ -29,7 +29,7 @@ public class Ingredient {
   }
   
   void display() {
-    fill(#522209);
+    fill(#532106);
     textSize(10);
     //change x, y
     text(inventory, x, y);
@@ -75,7 +75,7 @@ public class Ingredient {
   }
   
   void harvest() {
-    nutrient = water = weed = 0;
+    nutrient = water = weed = 30;
     inventory += 2 * ((nutrient + water + weed) / 100);
     if (inventory > 99) {
       inventory = 99;

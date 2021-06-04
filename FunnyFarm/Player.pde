@@ -1,6 +1,6 @@
 public class Player {
   int money, time, customersActive;
-  String selected;
+  String selected = "";
   boolean caught;
   
   Player() {
@@ -23,7 +23,7 @@ public class Player {
     return selected;
   }
   
-  void useFarmTool(Ingredient ingredient) {
+  void useTool(Ingredient ingredient) {
     if (ingredient.getGrowthStage() == 0) {
       if (selected.equals("creation egg")) {
         ingredient.sow();
