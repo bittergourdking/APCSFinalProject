@@ -1,5 +1,5 @@
 public class Ingredient {
-  int inventory, nutrient, water, weed, growthStage, x, y;
+  int inventory, nutrient, water, weed, growthStage, x, y, startTime, growingTime;
   String type;
   PImage[] stages = new PImage[4];
   boolean selected;
@@ -10,6 +10,7 @@ public class Ingredient {
     y = yC;
     inventory = 2;
     nutrient = water = weed = 30;
+    startTime = millis() / 1000;
     stages[0] = loadImage("blankIngredient.png");
     for (int i = 1; i < 4; i++) {
       stages[i] = loadImage(s + i + ".png");
@@ -30,9 +31,9 @@ public class Ingredient {
   
   void display() {
     fill(#532106);
-    textSize(15);
-    //change x, y
-    text(inventory, x, y);
+    textSize(30);
+    //rotate?
+    text(inventory, x - 60, y + 80);
     if (selected) {
       tint(#ffaaaf, 126);
     }
@@ -40,15 +41,22 @@ public class Ingredient {
     noTint();
     if (growing()) {
       update();
+      textSize(10);
       //change x, y
       text(nutrient + "\n" + water + "\n" + weed, x + 20, y + 10);
     }
+    growingTime = millis() / 1000 - startTime;
   }
   
   void update() {
     nutrient -= 2;
     water -= 2;
     weed -= 10;
+    if (growingTime == 15) {
+      growthStage = 2;
+    } else if (growingTime == 30) {
+      growthStage = 3;
+    }
   }
   
   void updateNutrient() {
@@ -72,6 +80,7 @@ public class Ingredient {
   void sow() {
     if (growthStage == 0) {
       growthStage = 1;
+      startTime = millis() / 1000;
     }
   }
   

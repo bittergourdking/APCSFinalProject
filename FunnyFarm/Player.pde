@@ -28,22 +28,27 @@ public class Player {
       if (selected.equals("creation egg")) {
         ingredient.sow();
         selected = "";
+        tools[0].click();
       }
     } else if (ingredient.getGrowthStage() == 3) {
       if (selected.equals("basket")) {
         ingredient.harvest();
         selected = "";
+        tools[4].click();
       }
     } else {
-      if (selected.equals("watering can")) {
-        ingredient.updateWater();
-        selected = "";
-      } else if (selected.equals("food bag")) {
+      if (selected.equals("food bag")) {
         ingredient.updateNutrient();
         selected = "";
+        tools[1].click();
+      } else if (selected.equals("watering can")) {
+        ingredient.updateWater();
+        selected = "";
+        tools[2].click();
       } else if (selected.equals("hoe")) {
         ingredient.updateWeed();
         selected = "";
+        tools[3].click();
       }
     }
   }

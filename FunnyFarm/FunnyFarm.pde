@@ -10,10 +10,14 @@ void setup() {
   size(1200, 1000);
   PImage background = loadImage("background.png");
   image(background, 0, 0);
+  frameRate(12);
   
   //set up ingredients
-  for (int i = 0; i < 12; i++) {
+  for (int i = 0; i < 6; i++) {
     ingredients[i] = new Ingredient(iNames[i], 85 + (i / 3) * 175, (i % 3) * 150);
+  }
+  for (int i = 6; i < 12; i++) {
+    ingredients[i] = new Ingredient(iNames[i], 175 + (i / 3) * 175, (i % 3) * 150);
   }
   
   //set up tools
@@ -21,7 +25,7 @@ void setup() {
     tools[i] = new Tool(tNames[i], (i * 85) + 520, 905);
   }
   
-  //testing
+  //testing delete later
   fill(0);
   textSize(30);
   text(ingredients[0].x + ", " + ingredients[0].y, width / 2, height / 2);
@@ -39,7 +43,6 @@ void draw() {
 void mousePressed() {
   int x = mouseX;
   int y = mouseY;
-  //clicking ingredients
   if (x < 790 && y < 450) {
     for (Ingredient item : ingredients) {
       if (x > item.x - 85 && y > item.y && x < (item.x + 90) && y < (item. y + 150)) {
