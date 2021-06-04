@@ -1,7 +1,7 @@
 public class Ingredient {
   int inventory, nutrient, water, weed, growthStage, x, y;
   String name;
-  PImage[] stages;
+  PImage[] stages = new PImage[4];
   boolean selected;
   
   Ingredient(String s, int xC, int yC) {
@@ -10,8 +10,8 @@ public class Ingredient {
     y = yC;
     inventory = 2;
     stages[0] = loadImage("blankIngredient.png");
-    for (int i = 0; i < 3; i++) {
-      stages[i + 1] = loadImage(s + i + ".png");
+    for (int i = 1; i < 4; i++) {
+      stages[i] = loadImage(s + i + ".png");
     }
   }
   
