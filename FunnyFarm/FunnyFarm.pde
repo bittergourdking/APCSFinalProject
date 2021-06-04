@@ -9,13 +9,14 @@ void setup() {
   //set up ingredients
   ingredients = new Ingredient[12];
   String[] iNames = {"wheat", "rice", "corn", "tomato", "potato", "fish", "milk", 
-                    "egg", "meat"};
+                    "egg", "meat", "apple", "orange", "berry"};
   for (int i = 0; i < 12; i++) {
-    ingredients[i] = new Ingredient(iNames[0], 85 + (i / 3) * 175, 55 + (i % 3) * 150);
+    ingredients[i] = new Ingredient(iNames[0], 85 + (i / 3) * 175, (i % 3) * 150);
   }
   
   //set up tools
   tools = new Tool[8];
+  String[] tNames = {"", "food bag", "watering can", "hoe", "basket"};
 }
 
 void draw() {
