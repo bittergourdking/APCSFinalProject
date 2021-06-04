@@ -43,12 +43,12 @@ void mousePressed() {
   if (x < 790 && y < 450) {
     for (Ingredient item : ingredients) {
       if (x > item.x - 85 && y > item.y && x < (item.x + 90) && y < (item. y + 150)) {
-        if (Proserpine.getSelected() == "" && item.getGrowthStage() == 3) {
+        if (Proserpine.getSelected() == "") {
           Proserpine.selectIngredient(item);
           item.click();
         } else if (Proserpine.getTypeSelected() == "tool") {
           Proserpine.useTool(item);
-        } else if (Proserpine.getTypeSelected() == "ingredient") {
+        } else if (Proserpine.getTypeSelected() == item.getType()) {
           Proserpine.deselect();
           item.click();
         } //here is where more else ifs should be added for future dishmaking
@@ -57,11 +57,12 @@ void mousePressed() {
   } else if (x > 515 && y > 900) {
     for (Tool t : tools) {
       if (x > t.x && x < t.x + 85) {
-        t.click();
         if (Proserpine.getSelected() == "") {
           Proserpine.selectTool(t);
-        } else if (Proserpine.getTypeSelected() == "tool") {
+          t.click();
+        } else if (Proserpine.getSelected() == t.getType()) {
           Proserpine.deselect();
+          t.click();
         }
       }
     }

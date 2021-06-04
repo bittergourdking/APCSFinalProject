@@ -35,7 +35,7 @@ public class Ingredient {
     //rotate?
     text(inventory, x - 60, y + 80);
     if (selected) {
-      tint(#faebeb, 126);
+      tint(#ff006a, 126);
     }
     image(stages[growthStage], x, y);
     noTint();

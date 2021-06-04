@@ -13,7 +13,7 @@ public class Tool {
   
   void display() {
     if (selected) {
-      tint(#ffaaaf, 126);
+      tint(#ff006a, 126);
     }
     image(sprite, x, y);
     noTint();
