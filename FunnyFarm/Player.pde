@@ -7,6 +7,10 @@ public class Player {
     time = 600;
   }
   
+  void display() {
+    fill(#ffd275);
+  }
+  
   void selectTool(Tool t) {
     selected = t.getType();
   }

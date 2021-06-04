@@ -29,15 +29,18 @@ public class Ingredient {
   }
   
   void display() {
+    fill(#522209);
+    textSize(10);
+    //change x, y
+    text(inventory, x, y);
     if (selected) {
       tint(#ffaaaf, 126);
     }
     image(stages[growthStage], x, y);
     if (growing()) {
       update();
-      fill(0);
-      textSize(10);
-      text(inventory, x, y);
+      //change x, y
+      text(nutrient + "\n" + water + "\n" + weed, x, y);
     }
   }
   
