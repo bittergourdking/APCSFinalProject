@@ -3,26 +3,44 @@ public class Player {
   String selected;
   boolean caught;
   
-  void getTool(Tool t) {
+  Player() {
+    time = 600;
+  }
+  
+  void selectTool(Tool t) {
     selected = t.getType();
   }
   
+  void selectIngredient(Ingredient item) {
+    selected = item.getType();
+  }
+  
+  String getSelected() {
+    return selected;
+  }
+  
   void useFarmTool(Ingredient ingredient) {
-    if (selected.equals("watering can")) {
-      ingredient.updateWater();
-      selected = "";
-    } else if (selected.equals("food bag")) {
-      ingredient.updateNutrient();
-      selected = "";
-    } else if (selected.equals("hoe")) {
-      ingredient.updateWeed();
-      selected = "";
-    } else if (selected.equals("basket")) {
-      ingredient.harvest();
-      selected = "";
-    } else if (selected.equals("seed bag")) {
-      ingredient.sow();
-      selected = "";
+    if (ingredient.getGrowthStage() == 0) {
+      if (selected.equals("creation egg")) {
+        ingredient.sow();
+        selected = "";
+      }
+    } else if (ingredient.getGrowthStage() == 3) {
+      if (selected.equals("basket")) {
+        ingredient.harvest();
+        selected = "";
+      }
+    } else {
+      if (selected.equals("watering can")) {
+        ingredient.updateWater();
+        selected = "";
+      } else if (selected.equals("food bag")) {
+        ingredient.updateNutrient();
+        selected = "";
+      } else if (selected.equals("hoe")) {
+        ingredient.updateWeed();
+        selected = "";
+      }
     }
   }
   
