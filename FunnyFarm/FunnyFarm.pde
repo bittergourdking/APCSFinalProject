@@ -14,10 +14,10 @@ void setup() {
   
   //set up ingredients
   for (int i = 0; i < 6; i++) {
-    ingredients[i] = new Ingredient(iNames[i], 85 + (i / 3) * 175, (i % 3) * 150);
+    ingredients[i] = new Ingredient(iNames[i], 80 + (i / 3) * 175, (i % 3) * 150);
   }
   for (int i = 6; i < 12; i++) {
-    ingredients[i] = new Ingredient(iNames[i], 175 + (i / 3) * 175, (i % 3) * 150);
+    ingredients[i] = new Ingredient(iNames[i], 170 + (i / 3) * 175, (i % 3) * 150);
   }
   
   //set up tools
@@ -32,6 +32,8 @@ void setup() {
 }
 
 void draw() {
+  PImage farmbackground = loadImage("farm background.png");
+  image(farmbackground, 0, 0);
   for (Ingredient item : ingredients) {
     item.display();
   }

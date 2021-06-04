@@ -49,9 +49,15 @@ public class Ingredient {
   }
   
   void update() {
-    nutrient -= 2;
-    water -= 2;
-    weed -= 10;
+    if (nutrient > 0) {
+      nutrient -= 1;
+    }
+    if (water > 0) {
+      water -= 1;
+    }
+    if (weed > 0) {
+      weed -= 1;
+    }
     if (growingTime == 15) {
       growthStage = 2;
     } else if (growingTime == 30) {
