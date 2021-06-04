@@ -49,13 +49,13 @@ public class Ingredient {
   }
   
   void update() {
-    if (nutrient > 0) {
+    if (nutrient > 0 && Math.random() > .5) {
       nutrient -= 1;
     }
-    if (water > 0) {
+    if (water > 0 && Math.random() > .5) {
       water -= 1;
     }
-    if (weed > 0) {
+    if (weed > 0 && Math.random() > .5) {
       weed -= 1;
     }
     if (growingTime == 15) {
@@ -92,7 +92,7 @@ public class Ingredient {
   
   void harvest() {
     nutrient = water = weed = 30;
-    inventory += 2 * ((nutrient + water + weed) / 100);
+    inventory += 2 * 1 + ((nutrient + water + weed) / 100);
     if (inventory > 99) {
       inventory = 99;
     }
