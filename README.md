@@ -8,12 +8,12 @@ Prototype + UML Diagram: https://docs.google.com/document/d/1CTJdd0qfa8UhUEigwaX
 TBA
 
 ## Development Log
-210524-210525: created UML diagram + sketched user interface + planned details
+210524-210526: created UML diagram + sketched user interface + planned details
 
-210526-210527: updated UML diagram + created processing files needed for demo
+210526-210528: updated UML diagram + created processing files needed for demo
 
-210528-210529: planned details + updated UML diagram + sketched sprites
+210528-210530: planned details + updated UML diagram + sketched sprites
 
-210530-210601: created background sprite + created Ingredient, Tool, Player classes and coded in ~30% of things needed for the final product
+210530-210602: created background sprite + created Ingredient, Tool, Player classes and coded in ~30% of things needed for the final product
 
-210602-210603: updated background sprite + created all ingredient sprites for all growth stages + currently illustrating tool sprites and making the demo workable
+210602-210604: updated background sprite + created all ingredient sprites for all growth stages and all tool sprites + coded working ingredient growth cycle; harvest and sowing methods; treatment methods with food bag, watering can, and hoe; nutrition, hydration, and weed status of growing ingredients; and an inventory that updates
