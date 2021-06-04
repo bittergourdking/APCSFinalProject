@@ -10,7 +10,6 @@ public class Ingredient {
     y = yC;
     inventory = 2;
     nutrient = water = weed = 50;
-    startTime = millis() / 1000;
     stages[0] = loadImage("blankIngredient.png");
     for (int i = 1; i < 4; i++) {
       stages[i] = loadImage(s + i + ".png");
@@ -92,12 +91,12 @@ public class Ingredient {
   }
   
   void harvest() {
-    nutrient = water = weed = 50;
     inventory += 2 * ((nutrient + water + weed) / 50);
     if (inventory > 99) {
       inventory = 99;
     }
     growthStage = 0;
+    nutrient = water = weed = 50;
   }
   
   void click() {

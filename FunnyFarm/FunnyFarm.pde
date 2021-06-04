@@ -48,7 +48,7 @@ void mousePressed() {
           item.click();
         } else if (Proserpine.getTypeSelected() == "tool") {
           Proserpine.useTool(item);
-        } else if (Proserpine.getTypeSelected() == item.getType()) {
+        } else if (Proserpine.getSelected() == item.getType()) {
           Proserpine.deselect();
           item.click();
         } //here is where more else ifs should be added for future dishmaking
