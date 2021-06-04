@@ -12,4 +12,6 @@ TBA
 
 210526-210527: updated UML diagram + created processing files needed for demo
 
-210528-210529: 
+210528-210529: planned details + updated UML diagram + sketched sprites
+
+210530-210601: created background + created Ingredient, Tool, Player classes and coded in ~40% of things needed for the final product
