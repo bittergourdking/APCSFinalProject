@@ -14,4 +14,6 @@ TBA
 
 210528-210529: planned details + updated UML diagram + sketched sprites
 
-210530-210601: created background + created Ingredient, Tool, Player classes and coded in ~40% of things needed for the final product
+210530-210601: created background sprite + created Ingredient, Tool, Player classes and coded in ~30% of things needed for the final product
+
+210602-210603: updated background sprite + created all ingredient sprites for all growth stages + currently illustrating tool sprites and making the demo workable
