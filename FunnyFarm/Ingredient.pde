@@ -9,7 +9,7 @@ public class Ingredient {
     x = xC;
     y = yC;
     inventory = 2;
-    nutrient = water = weed = 30;
+    nutrient = water = weed = 50;
     startTime = millis() / 1000;
     stages[0] = loadImage("blankIngredient.png");
     for (int i = 1; i < 4; i++) {
@@ -25,7 +25,7 @@ public class Ingredient {
     return growthStage;
   }
   
-  boolean growing() {
+  boolean isGrowing() {
     return (growthStage > 0 && growthStage < 3);
   }
   
@@ -35,11 +35,11 @@ public class Ingredient {
     //rotate?
     text(inventory, x - 60, y + 80);
     if (selected) {
-      tint(#ffaaaf, 126);
+      tint(#faebeb, 126);
     }
     image(stages[growthStage], x, y);
     noTint();
-    if (growing()) {
+    if (isGrowing()) {
       update();
       textSize(10);
       //change x, y
@@ -48,14 +48,15 @@ public class Ingredient {
     growingTime = millis() / 1000 - startTime;
   }
   
+  //rates can be changed in future for fun, challenging, but not impossible gameplay;
   void update() {
-    if (nutrient > 0 && Math.random() > .5) {
+    if (nutrient > 0 && Math.random() > .95) {
       nutrient -= 1;
     }
-    if (water > 0 && Math.random() > .5) {
+    if (water > 0 && Math.random() > .95) {
       water -= 1;
     }
-    if (weed > 0 && Math.random() > .5) {
+    if (weed > 0 && Math.random() > .95) {
       weed -= 1;
     }
     if (growingTime == 15) {
@@ -91,11 +92,12 @@ public class Ingredient {
   }
   
   void harvest() {
-    nutrient = water = weed = 30;
-    inventory += 2 * 1 + ((nutrient + water + weed) / 100);
+    nutrient = water = weed = 50;
+    inventory += 2 * ((nutrient + water + weed) / 50);
     if (inventory > 99) {
       inventory = 99;
     }
+    growthStage = 0;
   }
   
   void click() {
