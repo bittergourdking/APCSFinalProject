@@ -16,6 +16,7 @@ public class Tool {
       tint(#ffaaaf, 126);
     }
     image(sprite, x, y);
+    noTint();
   }
   
   String getType() {

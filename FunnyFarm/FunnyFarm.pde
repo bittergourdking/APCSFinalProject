@@ -24,7 +24,7 @@ void setup() {
   //testing
   fill(0);
   textSize(30);
-  text(tools[0].x + ", " + tools[0].y, width / 2, height / 2);
+  text(ingredients[0].x + ", " + ingredients[0].y, width / 2, height / 2);
 }
 
 void draw() {
@@ -41,34 +41,35 @@ void mousePressed() {
   int y = mouseY;
   //clicking ingredients
   if (x < 790 && y < 450) {
-    for (int i = 0; i < 12; i++) {
-      if (x < 85 + (i / 3) * 175 && y < (i % 3) * 150) {
+    for (Ingredient item : ingredients) {
+      if (x > item.x - 85 && y > item.y && x < (item.x + 90) && y < (item. y + 150)) {
         if (Proserpine.getSelected() == "") {
-          Proserpine.selectIngredient(ingredients[i - 1]);
-          ingredients[i - 1].click();
+          Proserpine.selectIngredient(item);
+          item.click();
         } else {
-          Proserpine.useTool(ingredients[i - 1]);
+          Proserpine.useTool(item);
         }
       }
     }
-    
-    if (Proserpine.getSelected() == "") {
+  } else if (x > 515 && y > 900) {
+    for (Tool t : tools) {
+      if (x > t.x && x < t.x + 85) {
+        if (Proserpine.getSelected() == "") {
+          Proserpine.selectTool(t);
+          t.click();
+        }
+      }
+    }
+  }
+  
+   /*if (Proserpine.getSelected() == "") {
       for (Tool t : tools) {
         if (Proserpine.getSelected() == "" && dist(mouseX, mouseY, t.x, t.y) <= 40) {
           Proserpine.selectTool(t);
           t.click();
         }   
       }
-    } else {
-
     }
-  }
-  
-  //clicking tool
-  if (x > 515 && y > 900) {
-    //select tool
-  }
-  
   if (Proserpine.getSelected() == "") {
     for (Ingredient item : ingredients) {
       if (Proserpine.getSelected() == "" && dist(mouseX, mouseY, item.x, item.y) <= 50) {
@@ -76,5 +77,5 @@ void mousePressed() {
         item.click();
       }
     }
-  }
+  }*/
 }
