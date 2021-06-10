@@ -12,21 +12,21 @@ String[] tNames = {"creation egg", "food bag", "watering can", "hoe", "basket",
 Customer[] customers = new Customer[8];
 String[] cNames = {"Akiyo", "Barley", "Damon", "Galvin", "Hildefons", "Mark",
                     "Ozimina", "Quinn", "Shua"};
-  
 
 Dish[] dishes = new Dish[8];
 String[] dNames = {};
 
-PImage farmbackground;
+PImage background;
+boolean[] spotsTaken = new boolean[4];
 
 void setup() {
   size(1200, 1000);
-  PImage background = loadImage("background.png");
+  background = loadImage("background.png");
   image(background, 0, 0);
   frameRate(30);
-  //things
+  
+  //misc. set ups
   Yves = new Detective();
-  farmbackground = loadImage("farm background.png");
   
   //set up ingredients
   for (int i = 0; i < 6; i++) {
@@ -48,12 +48,15 @@ void setup() {
 }
 
 void draw() {
-  image(farmbackground, 0, 0);
+  image(background, 0, 0);
   for (Ingredient item : ingredients) {
     item.display();
   }
   for (Tool t : tools) {
     t.display();
+  }
+  for (Customer c : customers) {
+    c.display();
   }
   
   if (Yves.isActive()) {
