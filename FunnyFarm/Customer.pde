@@ -1,5 +1,6 @@
 public class Customer {
   int x = 10;
+  int spot;
   PImage spriteHappy, spriteSad;
   boolean active, happy;
   
@@ -18,12 +19,25 @@ public class Customer {
     }
   }
   
+  boolean isActive() {
+    return active;
+  }
+  
   void activate(int n) {
     x = n;
     active = true;
+    happy = true;
   }
   
   void deactivate() {
     active = false;
+  }
+  
+  void setSpot(int n) {
+    spot = n;
+  }
+  
+  int getSpot() {
+    return spot;
   }
 }

@@ -18,7 +18,7 @@ String[] dNames = {};
 
 PImage background;
 boolean[] spotsTaken = new boolean[4];
-int nextSpot;
+int nextSpot, YvesActivationTime, currentTime;
 
 void setup() {
   size(1200, 1000);
@@ -50,21 +50,33 @@ void setup() {
 
 void draw() {
   image(background, 0, 0);
+  currentTime = millis() / 1000;
+  nextSpot = randomSpot();
   for (Ingredient item : ingredients) {
     item.display();
   }
   for (Tool t : tools) {
     t.display();
   }
-  nextSpot = randomSpot();
   for (Customer c : customers) {
-    c.display();
+    if (c.isActive()) {
+      c.display();
+    } else if (currentTime > 60 && nextSpot != -1 && !c.isActive() && Math.random() > .9) { 
+      c.activate(nextSpot);
+      nextSpot = -1;
+    }
   }
+  //spotsTaken[c.getSpot()] = false;
+  nextSpot = randomSpot();
   if (Yves.isActive()) {
     Yves.display();
-  } else if (nextSpot != -1 && Math.random() > .8) {
-    
+    if (currentTime - YvesActivationTime >= 20) {
+      Yves.deactivate();
+      spotsTaken[Yves.getSpot()] = false;
+    }
+  } else if (currentTime > 60 && nextSpot != -1 && Math.random() > .9) {
     Yves.activate(nextSpot * 195 + 10);
+    YvesActivationTime = millis() / 1000;
   }
 }
 
@@ -105,12 +117,16 @@ void mousePressed() {
 
 int randomSpot() {
   if (!spotsTaken[0]) {
+    spotsTaken[0] = true;
     return 0;
   } else if (!spotsTaken[3]) {
+    spotsTaken[3] = true;
     return 3;
   } else if (!spotsTaken[1]) {
+    spotsTaken[1] = true;
     return 1;
   } else if (!spotsTaken[2]) {
+    spotsTaken[2] = true;
     return 2;
   }
   return -1;
