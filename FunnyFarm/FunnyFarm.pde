@@ -18,6 +18,7 @@ String[] dNames = {};
 
 PImage background;
 boolean[] spotsTaken = new boolean[4];
+int nextSpot;
 
 void setup() {
   size(1200, 1000);
@@ -55,14 +56,15 @@ void draw() {
   for (Tool t : tools) {
     t.display();
   }
+  nextSpot = randomSpot();
   for (Customer c : customers) {
     c.display();
   }
-  
   if (Yves.isActive()) {
+    Yves.display();
+  } else if (nextSpot != -1 && Math.random() > .8) {
     
-  } else if (Math.random() > .8) {
-    Yves.makeActive();
+    Yves.activate(nextSpot * 195 + 10);
   }
 }
 
@@ -99,6 +101,19 @@ void mousePressed() {
       }
     }
   }
+}
+
+int randomSpot() {
+  if (!spotsTaken[0]) {
+    return 0;
+  } else if (!spotsTaken[3]) {
+    return 3;
+  } else if (!spotsTaken[1]) {
+    return 1;
+  } else if (!spotsTaken[2]) {
+    return 2;
+  }
+  return -1;
 }
 
 void endGame(int n) {

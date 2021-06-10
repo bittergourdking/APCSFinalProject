@@ -1,5 +1,5 @@
 public class Customer {
-  int x;
+  int x = 10;
   PImage spriteHappy, spriteSad;
   boolean active, happy;
   
@@ -16,5 +16,14 @@ public class Customer {
         image(spriteSad, x, 450);
       }
     }
+  }
+  
+  void activate(int n) {
+    x = n;
+    active = true;
+  }
+  
+  void deactivate() {
+    active = false;
   }
 }

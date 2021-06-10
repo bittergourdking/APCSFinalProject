@@ -1,6 +1,6 @@
 public class Detective {
   boolean active;
-  int x;
+  int x = 10;
   PImage sprite = loadImage("Yves.png");
   
   Detective() {
@@ -15,8 +15,13 @@ public class Detective {
     return active;
   }
   
-  void makeActive() {
+  void activate(int n) {
+    x = n;
     active = true;
+  }
+  
+  void deactivate() {
+    active = false;
   }
   
 }
