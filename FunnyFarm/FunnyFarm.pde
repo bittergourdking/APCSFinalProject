@@ -37,8 +37,10 @@ void draw() {
     t.display();
   }
   
-  if (!Yves.isActive()) {
+  if (Yves.isActive()) {
     
+  } else if (Math.random() > .8) {
+    Yves.makeActive();
   }
 }
 
