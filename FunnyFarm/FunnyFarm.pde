@@ -51,6 +51,8 @@ void setup() {
 void draw() {
   image(background, 0, 0);
   currentTime = millis() / 1000;
+  textSize(45);
+  text(600 - currentTime + "s left", 15, 965);
   nextSpot = randomSpot();
   for (Ingredient item : ingredients) {
     item.display();
@@ -61,9 +63,8 @@ void draw() {
   for (Customer c : customers) {
     if (c.isActive()) {
       c.display();
-    } else if (currentTime > 60 && nextSpot != -1 && !c.isActive() && Math.random() > .9) { 
+    } else if (currentTime > 10 && nextSpot != -1 && !c.isActive() && Math.random() > .9) { 
       c.activate(nextSpot);
-      nextSpot = -1;
     }
   }
   //spotsTaken[c.getSpot()] = false;
@@ -74,7 +75,7 @@ void draw() {
       Yves.deactivate();
       spotsTaken[Yves.getSpot()] = false;
     }
-  } else if (currentTime > 60 && nextSpot != -1 && Math.random() > .9) {
+  } else if (currentTime > 10 && nextSpot != -1 && Math.random() > .9) {
     Yves.activate(nextSpot * 195 + 10);
     YvesActivationTime = millis() / 1000;
   }

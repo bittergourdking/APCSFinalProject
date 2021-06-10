@@ -1,10 +1,10 @@
 public class Player {
-  int money, time, customersActive;
+  int money;
   String selected = "";
   String typeSelected = "";
   
   Player() {
-    time = 600;
+    money = 0;
   }
   
   void display() {
