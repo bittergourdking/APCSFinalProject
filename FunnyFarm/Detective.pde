@@ -3,6 +3,10 @@ public class Detective {
   int x;
   PImage sprite = loadImage("Yves.png");
   
+  Detective() {
+    
+  }
+  
   void display() {
     image(sprite, x, 450);
   }

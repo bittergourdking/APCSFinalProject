@@ -63,7 +63,7 @@ void mousePressed() {
   int x = mouseX;
   int y = mouseY;
   if (Yves.isActive() && x < 790 && y > 450) {
-    
+    endGame(1);
   }
   if (x < 790 && y < 450) {
     for (Ingredient item : ingredients) {
