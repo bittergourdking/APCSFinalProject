@@ -2,7 +2,7 @@ public class Player {
   int money, time, customersActive;
   String selected = "";
   String typeSelected = "";
-  boolean caught;
+  boolean caught, gameEnd;
   
   Player() {
     time = 600;
@@ -24,6 +24,10 @@ public class Player {
   
   void deselect() {
     selected = typeSelected = "";
+  }
+  
+  void setCaught() {
+    caught = true;
   }
   
   String getSelected() {

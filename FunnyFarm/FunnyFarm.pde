@@ -1,10 +1,11 @@
 Player Proserpine = new Player();
+Detective Yves = new Detective();
 Ingredient[] ingredients = new Ingredient[12];
 String[] iNames = {"wheat", "rice", "corn", "tomato", "potato", "fish", "milk", 
                     "egg", "meat", "apple", "orange", "berry"};
-//add kitchen tools later: knife, stirring spoon
-Tool[] tools = new Tool[5];
-String[] tNames = {"creation egg", "food bag", "watering can", "hoe", "basket"};
+Tool[] tools = new Tool[8];
+String[] tNames = {"creation egg", "food bag", "watering can", "hoe", "basket",
+"knife", "mixing bowl", "magic wand"};
 
 void setup() {
   size(1200, 1000);
@@ -21,7 +22,7 @@ void setup() {
   }
   
   //set up tools
-  for (int i = 0; i < 5; i++) {
+  for (int i = 0; i < 8; i++) {
     tools[i] = new Tool(tNames[i], (i * 85) + 520, 905);
   }
 }
@@ -35,11 +36,18 @@ void draw() {
   for (Tool t : tools) {
     t.display();
   }
+  
+  if (!Yves.isActive()) {
+    
+  }
 }
 
 void mousePressed() {
   int x = mouseX;
   int y = mouseY;
+  if (Yves.isActive() && x < 790 && y > 450) {
+    
+  }
   if (x < 790 && y < 450) {
     for (Ingredient item : ingredients) {
       if (x > item.x - 85 && y > item.y && x < (item.x + 90) && y < (item. y + 150)) {
