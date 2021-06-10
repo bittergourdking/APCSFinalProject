@@ -1,5 +1,5 @@
 Player Proserpine = new Player();
-Detective Yves = new Detective();
+Detective Yves;
 
 Ingredient[] ingredients = new Ingredient[12];
 String[] iNames = {"wheat", "rice", "corn", "tomato", "potato", "fish", "milk", 
@@ -8,21 +8,25 @@ String[] iNames = {"wheat", "rice", "corn", "tomato", "potato", "fish", "milk",
 Tool[] tools = new Tool[8];
 String[] tNames = {"creation egg", "food bag", "watering can", "hoe", "basket",
                    "knife", "mixing bowl", "magic wand"};
-
+                   
 Customer[] customers = new Customer[8];
 String[] cNames = {"Akiyo", "Barley", "Damon", "Galvin", "Hildefons", "Mark",
                     "Ozimina", "Quinn", "Shua"};
+  
 
 Dish[] dishes = new Dish[8];
 String[] dNames = {};
 
-PImage farmbackground = loadImage("farm background.png");
+PImage farmbackground;
 
 void setup() {
   size(1200, 1000);
   PImage background = loadImage("background.png");
   image(background, 0, 0);
   frameRate(30);
+  //things
+  Yves = new Detective();
+  farmbackground = loadImage("farm background.png");
   
   //set up ingredients
   for (int i = 0; i < 6; i++) {

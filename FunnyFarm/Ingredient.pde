@@ -42,7 +42,7 @@ public class Ingredient {
       update();
       textSize(10);
       //change x, y
-      text(nutrient + "\n" + water + "\n" + weed, x + 20, y + 10);
+      text(nutrient + "\n" + water + "\n" + weed, x + 20, y + 14);
     }
     growingTime = millis() / 1000 - startTime;
   }
