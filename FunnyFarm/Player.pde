@@ -1,10 +1,9 @@
 public class Player {
-  int money;
   String selected = "";
   String typeSelected = "";
   
   Player() {
-    money = 0;
+    
   }
   
   void display() {

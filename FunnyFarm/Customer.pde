@@ -1,6 +1,6 @@
 public class Customer {
   int x = 10;
-  int spot;
+  int spot, activationTime;
   PImage spriteHappy, spriteSad;
   boolean active, happy;
   
@@ -25,6 +25,7 @@ public class Customer {
   
   void activate(int n) {
     x = n;
+    activationTime= millis() / 1000;
     active = true;
     happy = true;
   }
@@ -39,5 +40,9 @@ public class Customer {
   
   int getSpot() {
     return spot;
+  }
+  
+  int getActivationTime() {
+    return activationTime;
   }
 }

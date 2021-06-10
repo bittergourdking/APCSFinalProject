@@ -18,7 +18,7 @@ String[] dNames = {};
 
 PImage background;
 boolean[] spotsTaken = new boolean[4];
-int nextSpot, YvesActivationTime, currentTime;
+int nextSpot, YvesActivationTime, customerActivationTime, currentTime, money;
 
 void setup() {
   size(1200, 1000);
@@ -46,11 +46,20 @@ void setup() {
   for (int i = 0; i < 8; i++) {
     customers[i] = new Customer(cNames[i]);
   }
+  
+  //inset set up for dishes
 }
 
 void draw() {
   image(background, 0, 0);
   currentTime = millis() / 1000;
+  if (currentTime == 600) {
+    if (money > 1000) {
+      endGame(2);
+    } else {
+      endGame(3);
+    }
+  }
   textSize(45);
   text(600 - currentTime + "s left", 15, 965);
   nextSpot = randomSpot();
@@ -61,13 +70,17 @@ void draw() {
     t.display();
   }
   for (Customer c : customers) {
+    if (currentTime - c.getActivationTime() >= 10) {
+      c.deactivate();
+      spotsTaken[c.getSpot()] = false;
+    }
     if (c.isActive()) {
       c.display();
-    } else if (currentTime > 10 && nextSpot != -1 && !c.isActive() && Math.random() > .9) { 
-      c.activate(nextSpot);
+    } else if (nextSpot != -1 && !c.isActive() && Math.random() > .9) { 
+      c.activate(nextSpot * 195 + 10);
+      c.setSpot(nextSpot);
     }
   }
-  //spotsTaken[c.getSpot()] = false;
   nextSpot = randomSpot();
   if (Yves.isActive()) {
     Yves.display();
@@ -75,8 +88,9 @@ void draw() {
       Yves.deactivate();
       spotsTaken[Yves.getSpot()] = false;
     }
-  } else if (currentTime > 10 && nextSpot != -1 && Math.random() > .9) {
+  } else if (nextSpot != -1 && Math.random() > .9) {
     Yves.activate(nextSpot * 195 + 10);
+    Yves.setSpot(nextSpot);
     YvesActivationTime = millis() / 1000;
   }
 }
@@ -135,10 +149,10 @@ int randomSpot() {
 
 void endGame(int n) {
   if (n == 1) {
-    
+    //caught by yves
   } else if (n == 2) {
-    
+    //not enough money
   } else {
-    
+    //good ending
   }
 }
