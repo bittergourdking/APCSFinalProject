@@ -1,11 +1,22 @@
 Player Proserpine = new Player();
 Detective Yves = new Detective();
+
 Ingredient[] ingredients = new Ingredient[12];
 String[] iNames = {"wheat", "rice", "corn", "tomato", "potato", "fish", "milk", 
                     "egg", "meat", "apple", "orange", "berry"};
+
 Tool[] tools = new Tool[8];
 String[] tNames = {"creation egg", "food bag", "watering can", "hoe", "basket",
-"knife", "mixing bowl", "magic wand"};
+                   "knife", "mixing bowl", "magic wand"};
+
+Customer[] customers = new Customer[8];
+String[] cNames = {"Akiyo", "Barley", "Damon", "Galvin", "Hildefons", "Mark",
+                    "Ozimina", "Quinn", "Shua"};
+
+Dish[] dishes = new Dish[8];
+String[] dNames = {};
+
+PImage farmbackground = loadImage("farm background.png");
 
 void setup() {
   size(1200, 1000);
@@ -25,10 +36,14 @@ void setup() {
   for (int i = 0; i < 8; i++) {
     tools[i] = new Tool(tNames[i], (i * 85) + 520, 905);
   }
+  
+  //set up customers
+  for (int i = 0; i < 8; i++) {
+    customers[i] = new Customer(cNames[i]);
+  }
 }
 
 void draw() {
-  PImage farmbackground = loadImage("farm background.png");
   image(farmbackground, 0, 0);
   for (Ingredient item : ingredients) {
     item.display();
@@ -76,5 +91,15 @@ void mousePressed() {
         }
       }
     }
+  }
+}
+
+void endGame(int n) {
+  if (n == 1) {
+    
+  } else if (n == 2) {
+    
+  } else {
+    
   }
 }

@@ -2,7 +2,6 @@ public class Player {
   int money, time, customersActive;
   String selected = "";
   String typeSelected = "";
-  boolean caught, gameEnd;
   
   Player() {
     time = 600;
@@ -24,10 +23,6 @@ public class Player {
   
   void deselect() {
     selected = typeSelected = "";
-  }
-  
-  void setCaught() {
-    caught = true;
   }
   
   String getSelected() {
@@ -65,16 +60,6 @@ public class Player {
         deselect();
         tools[3].click();
       }
-    }
-  }
-  
-  void endGame() {
-    if (caught) {
-      //display losing image
-    } else if (money < 250) {
-      //display another losing image
-    } else {
-      //display winning image
     }
   }
   
