@@ -5,7 +5,7 @@ After a heist gone wrong, art-conservator-turned-unwilling-con-artist Proserpine
 Prototype + UML Diagram: https://docs.google.com/document/d/1CTJdd0qfa8UhUEigwaXeC03ZQpYv6A0ouSAsHz_8kL0/edit?usp=sharing
 
 ## Compiling and Running Instructions
-TBA
+All necessary files are included within the project folder.
 
 ## Development Log
 210524-210526: created UML diagram + sketched user interface + planned details
