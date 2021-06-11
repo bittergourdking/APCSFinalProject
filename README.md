@@ -17,3 +17,9 @@ TBA
 210530-210602: created background sprite + created Ingredient, Tool, Player classes and coded in ~30% of things needed for the final product
 
 210602-210604: updated background sprite + created all ingredient sprites for all growth stages and all tool sprites + coded working ingredient growth cycle; harvest and sowing methods; treatment methods with food bag, watering can, and hoe; nutrition, hydration, and weed status of growing ingredients; and an inventory that updates
+
+210606-210608: created kitchen tool sprites + all sprites for customers, both happy and sad versions + sprite for detective
+
+210609-210611: updated UML diagram + created Customer, Detective, and Dish classes + created methods for setting and accessing variables from each. Realized and accepted that it would be better to finish the project by the 210614 deadline instead.
+
+210611:
