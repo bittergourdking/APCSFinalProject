@@ -16,9 +16,10 @@ String[] cNames = {"Akiyo", "Barley", "Damon", "Galvin", "Hildefons", "Mark",
 Dish[] dishes = new Dish[8];
 String[] dNames = {};
 
-PImage background;
+PImage background, startscreen;
 boolean[] spotsTaken = new boolean[4];
 int nextSpot, YvesActivationTime, customerActivationTime, currentTime, money;
+boolean pause = true;
 
 void setup() {
   size(1200, 1000);
@@ -47,7 +48,7 @@ void setup() {
     customers[i] = new Customer(cNames[i]);
   }
   
-  //inset set up for dishes
+  //insert set up for dishes
 }
 
 void draw() {
@@ -62,33 +63,36 @@ void draw() {
   }
   textSize(45);
   text(600 - currentTime + "s left", 15, 965);
-  nextSpot = randomSpot();
   for (Ingredient item : ingredients) {
     item.display();
   }
   for (Tool t : tools) {
     t.display();
   }
+  
+  /*nextSpot = randomSpot();
   for (Customer c : customers) {
-    if (currentTime - c.getActivationTime() >= 10) {
+    if (currentTime - c.getActivationTime() >= 90) { //change the 10 here
       c.deactivate();
       spotsTaken[c.getSpot()] = false;
-    }
-    if (c.isActive()) {
+    } else if (c.isActive()) {
       c.display();
-    } else if (nextSpot != -1 && !c.isActive() && Math.random() > .9) { 
+    } else if (currentTime > 10 && nextSpot != -1 && currentTime - customerActivationTime >= 20
+            && !c.isActive() && Math.random() > .97) { 
       c.activate(nextSpot * 195 + 10);
       c.setSpot(nextSpot);
+      customerActivationTime = millis() / 1000;
     }
-  }
+  }*/
   nextSpot = randomSpot();
   if (Yves.isActive()) {
     Yves.display();
-    if (currentTime - YvesActivationTime >= 20) {
+    if (currentTime - YvesActivationTime >= 15) {
       Yves.deactivate();
       spotsTaken[Yves.getSpot()] = false;
     }
-  } else if (nextSpot != -1 && Math.random() > .9) {
+  } else if (currentTime > 10 && currentTime - YvesActivationTime >= 5
+          && nextSpot != -1 && Math.random() > .97) {
     Yves.activate(nextSpot * 195 + 10);
     Yves.setSpot(nextSpot);
     YvesActivationTime = millis() / 1000;
@@ -148,6 +152,7 @@ int randomSpot() {
 }
 
 void endGame(int n) {
+  pause = true;
   if (n == 1) {
     //caught by yves
   } else if (n == 2) {

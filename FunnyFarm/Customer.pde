@@ -10,12 +10,10 @@ public class Customer {
   }
   
   void display() {
-    if (active) {
-      if (happy) {
-        image(spriteHappy, x, 450);
-      } else {
-        image(spriteSad, x, 450);
-      }
+    if (happy) {
+      image(spriteHappy, x, 450);
+    } else {
+      image(spriteSad, x, 450);
     }
   }
   
@@ -25,7 +23,7 @@ public class Customer {
   
   void activate(int n) {
     x = n;
-    activationTime= millis() / 1000;
+    activationTime = millis() / 1000;
     active = true;
     happy = true;
   }
