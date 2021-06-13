@@ -22,7 +22,8 @@ public class Customer {
   }
   
   void activate(int n) {
-    x = n;
+    x = n * 195 + 10;
+    spot = n;
     activationTime = millis() / 1000;
     active = true;
     happy = true;
@@ -30,10 +31,6 @@ public class Customer {
   
   void deactivate() {
     active = false;
-  }
-  
-  void setSpot(int n) {
-    spot = n;
   }
   
   int getSpot() {

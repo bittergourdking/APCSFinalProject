@@ -72,7 +72,7 @@ void draw() {
   
   /*nextSpot = randomSpot();
   for (Customer c : customers) {
-    if (currentTime - c.getActivationTime() >= 90) { //change the 10 here
+    if (c.isActive() && currentTime - c.getActivationTime() >= 60) {
       c.deactivate();
       spotsTaken[c.getSpot()] = false;
     } else if (c.isActive()) {
@@ -85,16 +85,25 @@ void draw() {
     }
   }*/
   nextSpot = randomSpot();
-  if (Yves.isActive()) {
+  /*if (Yves.isActive()) {
     Yves.display();
     if (currentTime - YvesActivationTime >= 15) {
       Yves.deactivate();
       spotsTaken[Yves.getSpot()] = false;
     }
-  } else if (currentTime > 10 && currentTime - YvesActivationTime >= 5
+  } else if (currentTime > 10 && currentTime - YvesActivationTime >= 20
           && nextSpot != -1 && Math.random() > .97) {
-    Yves.activate(nextSpot * 195 + 10);
-    Yves.setSpot(nextSpot);
+    Yves.activate(nextSpot);
+    YvesActivationTime = millis() / 1000;
+  }*/
+  if (Yves.isActive()) {
+    Yves.display();
+    if (currentTime - YvesActivationTime >= 20) {
+      Yves.deactivate();
+      spotsTaken[Yves.getSpot()] = false;
+    }
+  } else if (currentTime > 60 && nextSpot != -1 && Math.random() > .9) {
+    Yves.activate(nextSpot);
     YvesActivationTime = millis() / 1000;
   }
 }
